@@ -1,0 +1,15 @@
+/*
+  Component: .custom-input
+  Description: Styles a custom input for form
+*/
+.custom-input {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--ion-color-secondary);
+  transition: all 0.3 ease;
+
+  ion-input {
+    color: var(--ion-color-secondary-contrast);
+  }
+}
