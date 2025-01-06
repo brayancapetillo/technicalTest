@@ -1,46 +1,22 @@
-# Specifies intentionally untracked files to ignore when using Git
-# http://git-scm.com/docs/gitignore
+# ======================== SYSTEM FILES ========================
+# macOS
+.DS_Store
 
-*~
-*.sw[mnpcod]
-.tmp
-*.tmp
-*.tmp.*
-UserInterfaceState.xcuserstate
-$RECYCLE.BIN/
+# Windows
+Thumbs.db
 
-*.log
-log.txt
-
-
-/.sourcemaps
-/.versions
-/coverage
-
-# Ionic
-/.ionic
-/www
-/platforms
-/plugins
-
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
-
-# IDEs and editors
+# ===================== IDEs AND EDITORS ========================
+# JetBrains IDEs (e.g., IntelliJ, WebStorm)
 .idea/
+
+# Eclipse
 .project
 .classpath
+
+# Cloud9
 .c9/
-*.launch
-.settings/
+
+# Sublime Text
 *.sublime-project
 *.sublime-workspace
 
@@ -52,19 +28,73 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# ========================== LOGS ==============================
+# Logs
+*.log
+log.txt
+npm-debug.log
+yarn-error.log
 
-# Miscellaneous
+# Misc log files
+libpeerconnection.log
+testem.log
+
+# ===================== TEMPORARY FILES ========================
+# Temporary files
+*~
+*.sw[mnpcod]
+.tmp
+*.tmp
+*.tmp.*
+UserInterfaceState.xcuserstate
+
+# ====================== SYSTEM FOLDERS ========================
+# Windows Recycle Bin
+$RECYCLE.BIN/
+
+# ==================== NODE MODULES ============================
+# Node.js
+/node_modules
+
+# ======================== BUILD OUTPUT ========================
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# ======================== COVERAGE ============================
+# Coverage reports
+/.sourcemaps
+/.versions
+/coverage
+
+# ======================== IONIC ==============================
+# Ionic specific folders
+/.ionic
+/www
+/platforms
+/plugins
+
+# ===================== FRAMEWORKS AND TOOLS ====================
+# Angular
 /.angular
 /.angular/cache
-.sass-cache/
+
+# NX
 /.nx
 /.nx/cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
+
+# Firebase
+/.firebase
+.firebaserc
+
+# ====================== MISCELLANEOUS =========================
+# Miscellaneous files
+.sass-cache/
+.connect.lock
 /typings
 
-# System files
-.DS_Store
-Thumbs.db
+# ======================== OTHER ================================
+# Firebase
+/.firebase

@@ -1,0 +1,26 @@
+/*
+  Component: .custom-title
+  Description: Styles a container with a title and right-aligned content
+*/
+.custom-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+
+  .title {
+    font-size: 0.85rem;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    ion-avatar {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

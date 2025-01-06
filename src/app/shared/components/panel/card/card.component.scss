@@ -1,0 +1,10 @@
+/*
+  Component: .custom-card
+  Description: Styles a container for custom card
+*/
+.custom-card {
+  background: var(--ion-color-secondary);
+  padding: 16px;
+  border-radius: 0.5rem;
+  box-shadow: 0 2rem 3rem var(--ion-shadow-color);
+}
