@@ -1,0 +1,155 @@
+<app-header title="Numeros multiplos" class="ion-text-center" />
+<ion-content [fullscreen]="true" class="ion-padding">
+  <app-card class="multiples-card">
+    <div class="multiples-card__header">
+      <div class="multiples-card__top">
+        <h4 class="multiples-card__title">
+          <ion-text color="dark">Verificar Múltiplos</ion-text>
+        </h4>
+        <p class="multiples-card__description">
+          <ion-text color="medium">
+            Ingresa un número positivo en el campo numérico para calcular sus
+            múltiplos.
+          </ion-text>
+        </p>
+      </div>
+      <div class="multiples-card__help">
+        <ion-button size="small" id="open-modal" expand="block">
+          <ion-icon
+            slot="icon-only"
+            ios="help-circle-outline"
+            md="help-circle-outline"
+          ></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="multiples-card__form">
+      <form [formGroup]="formNumberMultiple" (submit)="generateMultiples()">
+        <div class="multiples-card__input-group">
+          <app-input
+            [control]="formNumberMultiple.controls.numberMultiple"
+            type="number"
+            placeHolder="Ingresa un número"
+            class="multiples-card__input"
+          ></app-input>
+          <ion-button
+            (click)="clearFormAndMultiples()"
+            type="button"
+            color="primary"
+            class="multiples-card__clear-button"
+          >
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+          <ion-button
+            type="submit"
+            color="primary"
+            class="multiples-card__submit-button"
+          >
+            <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </app-card>
+
+  @if (displayNumbers.length>0) {
+  <div class="information-card">
+    <app-card>
+      <div class="information-card__colors">
+        <div class="information-card__colors-info">
+          <ion-text color="medium"
+            >Los múltiplos de 3, 5 y 7 están resaltados con los siguientes
+            colores:</ion-text
+          >
+        </div>
+        <div class="information-card__color-list">
+          @for (item of multipleNumbers; track $index) {
+          <div
+            class="information-card__color-box"
+            [ngStyle]="{'background': item.color}"
+          >
+            <ion-text color="secondary">{{item.value}}</ion-text>
+          </div>
+          }
+        </div>
+      </div>
+    </app-card>
+  </div>
+
+  <div class="results-card">
+    <app-card>
+      <div class="results-card__text">
+        <ion-text color="medium"
+          >Aquí tienes los números del 0 al {{numberMultiple.value}}:</ion-text
+        >
+      </div>
+      <div class="results-card__data">
+        @for (item of displayNumbers; track $index) {
+        <span [ngStyle]="{'color': item.color}">{{item.value}}</span
+        >{{item.value ===displayNumbers.length-1 ? '.' : ','}} }
+      </div>
+    </app-card>
+  </div>
+
+  <div class="extra-information-card">
+    <app-card>
+      @if(groupMultipleNumber.length>0){
+      <div class="extra-information-card__info">
+        <ion-text color="medium"
+          >Estos son los numeros agrupados por multiplos</ion-text
+        >
+      </div>
+
+      <div class="extra-information-card__accordion">
+        <ion-accordion-group>
+          @for (multiple of groupMultipleNumber; track $index) {
+          <ion-accordion [value]="multiple.value">
+            <ion-item slot="header" color="secondary">
+              <ion-label>Multiplos de {{multiple.value}}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              @for (item of multiple.groupValue; track $index) {
+              <span>{{item}}</span> {{$index === multiple.groupValue.length-1 ?
+              '.' : ','}} }
+            </div>
+          </ion-accordion>
+          }
+        </ion-accordion-group>
+      </div>
+      } @else {
+      <div class="extra-information-card__info">
+        <ion-text color="medium"
+          >Ninguno de los números del 0 a {{numberMultiple.value}} es múltiplo
+          de los múltiplos definidos</ion-text
+        >
+      </div>
+      }
+    </app-card>
+  </div>
+  }
+</ion-content>
+
+<ion-modal #modal trigger="open-modal">
+  <ng-template>
+    <ion-content>
+      <ion-toolbar>
+        <ion-title>Información</ion-title>
+        <ion-buttons slot="end">
+          <ion-button color="light" (click)="modal.dismiss()"
+            >Cerrar</ion-button
+          >
+        </ion-buttons>
+      </ion-toolbar>
+
+      <div class="ion-padding">
+        <ion-text color="medium">
+          ¡Bienvenido! Esta aplicación te ayuda a determinar los múltiplos de 3,
+          5 y 7. Los múltiplos de 3 se destacan en verde, los de 5 en rojo y los
+          de 7 en azul. Si un número es múltiplo de más de uno, se resaltará con
+          el color del múltiplo más bajo.
+        </ion-text>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
