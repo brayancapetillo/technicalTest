@@ -47,7 +47,7 @@ export class FirebaseService {
     try {
       await addDoc(collection(this.db, this.path), data);
     } catch (e) {
-      this.ToastMessageService.showToast({ message: e, duration: 3000, color: 'danger' })
+      this.ToastMessageService.showToast({ message: (e as Error).message, duration: 3000, color: 'danger' })
     }
   }
 }
