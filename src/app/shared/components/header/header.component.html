@@ -1,0 +1,25 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary">
+    <!---- custom header container ---->
+    <div class="custom-title">
+      <!---- Menu button on left ---->
+      <div class="left">
+        <ion-button color="secondary" size="small">
+          <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <!---- Buttons and avatar on right ---->
+      <div class="right">
+        <ion-button color="secondary" size="small" (click)="toggleChange()">
+          <ion-icon slot="icon-only" name="sunny-outline"></ion-icon>
+        </ion-button>
+        <ion-avatar>
+          <img
+            alt="Silhouette of a person's head"
+            src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          />
+        </ion-avatar>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
